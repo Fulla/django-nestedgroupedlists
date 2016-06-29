@@ -11,7 +11,7 @@ So, for example, if we have a model for Citizen, and want to list them but also 
 we need to make a ORM query similar to Citizen.values('city').annotate(Avg('age')),
 and then make the corresponding queries to obtain the citizens of each city.
 
-Won't it be great to make just one request, -indicating which is the field by which want to group the individuals and which are the aggregation functions we want to show-, and obtain a JSON with both the grouping information and the individuals nested in each group?
+Won't it be **great** to make just one request, -indicating which is the field by which want to group the individuals and which are the aggregation functions we want to show-, and obtain a JSON with both the grouping information and the individuals nested in each group?
 
 ## Mode of use:
 
@@ -25,10 +25,13 @@ Well, this api makes that. It provides you with a function (simplegrouping) that
 - 4: serializer = model serializer
 
 For example, we call
+```
   simplegrouping('city', [{'Count','id'},{'Avg','age'}], Citizen, CitizenSerializer)
+```
 
 and we obtain a JSON were, for each group, there is a field for each aggregation function and a field for the list of members of the group.
 
+```
   [
    {
      'city': 'Kansas',
@@ -58,3 +61,4 @@ and we obtain a JSON were, for each group, there is a field for each aggregation
       ]
    }
   ]
+```
