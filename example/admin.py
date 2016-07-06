@@ -1,4 +1,4 @@
-from example.models import Citizen
+from example.models import Citizen, CitizenExt
 from django.contrib import admin
 
 # Register your models here.
@@ -6,3 +6,7 @@ from django.contrib import admin
 class CitizenAdmin(admin.ModelAdmin):
     pass
 admin.site.register(Citizen, CitizenAdmin)
+
+class CitizenExtAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(CitizenExt, CitizenExtAdmin)

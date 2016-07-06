@@ -22,7 +22,9 @@ from example.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^citizens/', CitizenView.as_view()),
-    url(r'^citizensgrouped/', ListGrouped)
+    url(r'^citizensext/', CitizenExtView.as_view()),
+    url(r'^citizensgrouped/', ListGrouped),
+    url(r'^citizensgroupednest/', NestListGrouped)
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
